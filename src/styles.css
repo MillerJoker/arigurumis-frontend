@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-10px) rotate(4deg); }
+  }
+
+  /* Lila: el ovillo */
+  --color-lila-50:  #F6F3FB;
+  --color-lila-100: #ECE6F6;
+  --color-lila-200: #D9CEEC;
+  --color-lila-300: #BFAEDD;
+  --color-lila-400: #A592CE;
+  --color-lila-500: #8A76B8;
+  --color-lila-600: #735F9C;
+  --color-lila-700: #5E4D80;
+  --color-lila-800: #4A3D66;
+  --color-lila-900: #382E4D;
+
+  /* Rosa: las agujas */
+  --color-rosa-50:  #FFF5F8;
+  --color-rosa-100: #FFE8EE;
+  --color-rosa-200: #FDD3DF;
+  --color-rosa-300: #FAB9CB;
+  --color-rosa-400: #F598B1;
+  --color-rosa-500: #EC7597;
+  --color-rosa-600: #D85780;
+
+  /* Menta: los corazones turquesa */
+  --color-menta-50:  #F0FAF8;
+  --color-menta-100: #DCF3EF;
+  --color-menta-200: #BBE6DF;
+  --color-menta-300: #98D4CA;
+  --color-menta-400: #72BFB2;
+  --color-menta-500: #52A89A;
+  --color-menta-600: #3F8A7E;
+
+  /* Durazno: las estrellitas */
+  --color-durazno-50:  #FFFAF2;
+  --color-durazno-100: #FFF1DC;
+  --color-durazno-200: #FDE3BC;
+  --color-durazno-300: #F9CF94;
+  --color-durazno-400: #F2B66A;
+
+  --color-crema: #FFFBF7;
+  --color-tinta: #231F2B;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-crema font-sans text-tinta antialiased; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+  @utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-bold
+         transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2
+         focus-visible:outline-lila-500 disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+@utility btn-primary {
+  @apply btn bg-lila-600 text-white shadow-md shadow-lila-600/25 hover:-translate-y-0.5 hover:bg-lila-700;
+}
+
+@utility btn-secondary {
+  @apply btn bg-rosa-100 text-lila-700 hover:bg-rosa-200;
+}
+
+@utility btn-outline {
+  @apply btn border-2 border-lila-200 text-lila-700 hover:border-lila-400 hover:bg-lila-50;
+}
+
+@utility card {
+  @apply rounded-3xl bg-white p-6 shadow-lg shadow-lila-900/5 ring-1 ring-lila-100;
+}
+
+@utility input {
+  @apply w-full rounded-2xl border-2 border-lila-100 bg-white px-4 py-3 text-base
+         placeholder:text-lila-300 focus:border-lila-400 focus:outline-none;
+}
+
+@utility section-title {
+  @apply text-3xl font-bold text-lila-700 sm:text-4xl;
+}
